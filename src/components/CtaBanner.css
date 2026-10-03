@@ -1,0 +1,53 @@
+.cta-section {
+  padding: 40px 0;
+}
+
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 293px;
+  padding: 64px;
+  background-color: var(--color-dark-blue);
+  background-image: var(--gradient-deep);
+  color: var(--color-white);
+}
+
+.cta-banner__stripes {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+}
+
+.cta-banner__inner {
+  position: relative;
+  max-width: 644px;
+}
+
+.cta-banner h2 {
+  color: var(--color-white);
+  font-size: 2.25rem;
+  line-height: 44px;
+}
+
+.cta-banner__btn {
+  margin-top: 32px;
+  padding: 14.4px 19.8px;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .cta-banner {
+    padding: 40px 24px;
+  }
+  .cta-banner__stripes {
+    width: 60%;
+    opacity: 0.4;
+  }
+  .cta-banner h2 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+}

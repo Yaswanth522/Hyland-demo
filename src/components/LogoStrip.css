@@ -1,0 +1,29 @@
+.logo-strip__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo-strip__list li {
+  flex: 0 1 208px;
+}
+
+.logo-strip__list img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .logo-strip__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 32px;
+  }
+  .logo-strip__list li {
+    flex-basis: 40%;
+  }
+}
