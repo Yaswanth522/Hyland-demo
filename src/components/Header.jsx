@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { languages, mainNav } from "../data/nav";
-import { SITE } from "../data/home";
 import { initialsFromName } from "../utils/name";
 import { ArrowRight, HylandLogo } from "./Logo";
 import "./Header.css";
+
+// Header links are placeholders only: they don't navigate anywhere.
+const noop = (e) => e.preventDefault();
 
 function MegaMenu({ item }) {
   const [group, setGroup] = useState(0);
@@ -20,7 +22,7 @@ function MegaMenu({ item }) {
               <ul className="mega-menu__list mega-menu__list--tabs">
                 {item.links.slice(0, 1).map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    <a href="#" onClick={noop}>{link.label}</a>
                   </li>
                 ))}
                 {groups.map((g, i) => (
@@ -38,14 +40,14 @@ function MegaMenu({ item }) {
                 ))}
                 {item.links.slice(1).map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    <a href="#" onClick={noop}>{link.label}</a>
                   </li>
                 ))}
               </ul>
               <ul className="mega-menu__list mega-menu__list--sub">
                 {groups[group].links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    <a href="#" onClick={noop}>{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -54,13 +56,13 @@ function MegaMenu({ item }) {
             <ul className="mega-menu__list mega-menu__list--cols">
               {item.links.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href}>{link.label}</a>
+                  <a href="#" onClick={noop}>{link.label}</a>
                 </li>
               ))}
             </ul>
           )}
         </div>
-        <a className="mega-menu__feature" href={item.links[0].href}>
+        <a className="mega-menu__feature" href="#" onClick={noop}>
           <img src={item.feature.image} alt="" loading="lazy" />
           <div>
             <h3>{item.feature.title}</h3>
@@ -178,13 +180,13 @@ export default function Header() {
         </Link>
 
         <nav className="site-header__utility" aria-label="Top">
-          <a href="https://community.hyland.com" target="_blank" rel="noreferrer">
+          <a href="#" onClick={noop}>
             Community
             <svg viewBox="0 0 20 20" aria-hidden="true">
               <path d="M6 4.5A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h8a1.5 1.5 0 0 0 1.5-1.5v-2.5a.5.5 0 0 1 1 0V14a2.5 2.5 0 0 1-2.5 2.5H6A2.5 2.5 0 0 1 3.5 14V6A2.5 2.5 0 0 1 6 3.5h2.5a.5.5 0 0 1 0 1H6Zm5-1a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V4.7l-5.15 5.15a.5.5 0 0 1-.7-.7L15.29 4H11.5a.5.5 0 0 1-.5-.5Z" fill="currentColor" />
             </svg>
           </a>
-          <a href={`${SITE}/en/contact-us`}>Contact Us</a>
+          <a href="#" onClick={noop}>Contact Us</a>
           <div className="lang-picker">
             <button type="button" aria-expanded={langOpen} onClick={() => setLangOpen((v) => !v)}>
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -197,7 +199,7 @@ export default function Header() {
               <ul className="lang-picker__menu">
                 {languages.map((lang) => (
                   <li key={lang.code}>
-                    <a href={lang.href}>{lang.label}</a>
+                    <a href="#" onClick={noop}>{lang.label}</a>
                   </li>
                 ))}
               </ul>
@@ -234,8 +236,7 @@ export default function Header() {
       {searchOpen && (
         <form
           className="site-header__search container"
-          action={`${SITE}/en/search`}
-          method="get"
+          onSubmit={noop}
           role="search"
         >
           <input type="search" name="q" placeholder="Search hyland.com" autoFocus aria-label="Search" />
@@ -263,7 +264,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <a className="btn btn--pill site-header__demo" href={`${SITE}/en/demos/request-demo`}>
+        <a className="btn btn--pill site-header__demo" href="#" onClick={noop}>
           Request a demo
         </a>
       </div>
@@ -292,7 +293,7 @@ export default function Header() {
                   <ul className="mobile-nav__sub">
                     {[...item.links, ...(item.groups?.flatMap((g) => g.links) ?? [])].map((link, i) => (
                       <li key={`${link.label}-${i}`}>
-                        <a href={link.href}>{link.label}</a>
+                        <a href="#" onClick={noop}>{link.label}</a>
                       </li>
                     ))}
                   </ul>
@@ -301,9 +302,9 @@ export default function Header() {
             ))}
           </ul>
           <div className="mobile-nav__footer">
-            <a href="https://community.hyland.com">Community</a>
-            <a href={`${SITE}/en/contact-us`}>Contact Us</a>
-            <a className="btn btn--pill" href={`${SITE}/en/demos/request-demo`}>
+            <a href="#" onClick={noop}>Community</a>
+            <a href="#" onClick={noop}>Contact Us</a>
+            <a className="btn btn--pill" href="#" onClick={noop}>
               Request a demo
             </a>
           </div>
