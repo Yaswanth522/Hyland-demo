@@ -1,5 +1,6 @@
 import { cic } from "../data/home";
 import "./CicBanner.css";
+import { noop } from "../utils/placeholder";
 
 export default function CicBanner() {
   return (
@@ -17,7 +18,7 @@ export default function CicBanner() {
               <span>Innovation</span>
               <span className="cic__title-white">Cloud</span>
             </p>
-            <a className="cic__btn" href={cic.link.href}>
+            <a className="cic__btn" href="#" onClick={noop}>
               {cic.link.label}
             </a>
           </div>

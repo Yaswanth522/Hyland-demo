@@ -1,5 +1,5 @@
-import { SITE } from "../data/home";
 import "./CtaBanner.css";
+import { noop } from "../utils/placeholder";
 
 function Stripes() {
   return (
@@ -19,7 +19,7 @@ export default function CtaBanner() {
           <Stripes />
           <div className="cta-banner__inner">
             <h2>Empower your people to deliver their best with Hyland</h2>
-            <a className="btn cta-banner__btn" href={`${SITE}/en/contact-us`}>
+            <a className="btn cta-banner__btn" href="#" onClick={noop}>
               Connect with an expert
             </a>
           </div>

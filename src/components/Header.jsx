@@ -5,9 +5,7 @@ import { languages, mainNav } from "../data/nav";
 import { initialsFromName } from "../utils/name";
 import { ArrowRight, HylandLogo } from "./Logo";
 import "./Header.css";
-
-// Header links are placeholders only: they don't navigate anywhere.
-const noop = (e) => e.preventDefault();
+import { noop } from "../utils/placeholder";
 
 function MegaMenu({ item }) {
   const [group, setGroup] = useState(0);

@@ -1,6 +1,7 @@
 import { capabilities } from "../data/home";
 import Icon from "./Icon";
 import "./CapabilityGrid.css";
+import { noop } from "../utils/placeholder";
 
 export default function CapabilityGrid() {
   return (
@@ -15,7 +16,7 @@ export default function CapabilityGrid() {
         <ul className="capability-grid">
           {capabilities.map((c) => (
             <li key={c.title}>
-              <a className="capability-card" href={c.href}>
+              <a className="capability-card" href="#" onClick={noop}>
                 <Icon name={c.title} className="capability-card__icon" />
                 <h3>{c.title}</h3>
                 <p>{c.text}</p>

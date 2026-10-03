@@ -1,7 +1,7 @@
 import { footerColumns, legalLinks } from "../data/nav";
-import { SITE } from "../data/home";
 import { HylandWordmark } from "./Logo";
 import "./Footer.css";
+import { noop } from "../utils/placeholder";
 
 const socials = [
   {
@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="site-footer__brand">
           <HylandWordmark className="site-footer__logo" />
           <p>Helping organizations stay informed, empowered and connected in every interaction with the people they serve.</p>
-          <a className="btn" href={`${SITE}/en/contact-us`}>
+          <a className="btn" href="#" onClick={noop}>
             Contact Us
           </a>
         </div>
@@ -49,7 +49,7 @@ export default function Footer() {
               <ul>
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    <a href="#" onClick={noop}>{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -61,7 +61,7 @@ export default function Footer() {
       <div className="container site-footer__bottom">
         <div className="site-footer__newsletter">
           <p>Stay ahead with the latest in content innovation</p>
-          <a className="btn btn--ghost-white" href={`${SITE}/en/resources/newsletter-signup`}>
+          <a className="btn btn--ghost-white" href="#" onClick={noop}>
             Get monthly insights
           </a>
         </div>
@@ -70,7 +70,7 @@ export default function Footer() {
           <ul>
             {socials.map((s) => (
               <li key={s.label}>
-                <a href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}>
+                <a href="#" onClick={noop} aria-label={s.label}>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d={s.path} fill="currentColor" />
                   </svg>
@@ -89,7 +89,7 @@ export default function Footer() {
         <ul>
           {legalLinks.map((link) => (
             <li key={link.label}>
-              <a href={link.href}>{link.label}</a>
+              <a href="#" onClick={noop}>{link.label}</a>
             </li>
           ))}
         </ul>

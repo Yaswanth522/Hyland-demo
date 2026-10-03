@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { industries } from "../data/home";
 import "./IndustryTabs.css";
+import { noop } from "../utils/placeholder";
 
 export default function IndustryTabs() {
   const [activeId, setActiveId] = useState(industries[0].id);
@@ -42,7 +43,7 @@ export default function IndustryTabs() {
                 <p>{item.text}</p>
               </div>
             ))}
-            <a className="btn btn--outline" href={active.href}>
+            <a className="btn btn--outline" href="#" onClick={noop}>
               Explore solutions for {active.label.toLowerCase()}
             </a>
           </div>

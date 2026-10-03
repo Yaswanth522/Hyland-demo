@@ -1,5 +1,6 @@
 import { hero } from "../data/home";
 import "./HeroHome.css";
+import { noop } from "../utils/placeholder";
 
 // Teal dashed diagonals on the right edge of the hero, like hyland.com's pattern.
 function DashPattern() {
@@ -21,7 +22,7 @@ export default function HeroHome() {
             From <span>enterprise content</span> to <span>intelligent action</span>
           </h1>
           <p className="hero-home__eyebrow">{hero.eyebrow}</p>
-          <a className="hero-home__cta" href={hero.cta.href}>
+          <a className="hero-home__cta" href="#" onClick={noop}>
             {hero.cta.label}
             <span className="hero-home__cta-icon" aria-hidden="true">
               <svg viewBox="0 0 20 20">

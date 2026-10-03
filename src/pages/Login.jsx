@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { SITE } from "../data/home";
 import "./Login.css";
+import { noop } from "../utils/placeholder";
 
 const LOGO_URL = "https://ok11static2.oktacdn.com/fs/bco/1/fs0qka2ikxXiU1xav4x7";
 
@@ -29,8 +29,6 @@ export default function Login() {
     login(toEmail(username.trim()));
     navigate("/");
   }
-
-  const dead = (e) => e.preventDefault();
 
   return (
     <div className="okta-page">
@@ -102,24 +100,24 @@ export default function Login() {
           </button>
 
           <div className="okta-form__links">
-            <a href="#" onClick={dead}>
+            <a href="#" onClick={noop}>
               Forgot password?
             </a>
-            <a href="#" onClick={dead}>
+            <a href="#" onClick={noop}>
               Unlock account?
             </a>
-            <a href="https://community.hyland.com/en/help/need-help" target="_blank" rel="noreferrer">
+            <a href="#" onClick={noop}>
               Need help signing in?
             </a>
           </div>
 
           <p className="okta-form__legal">
             By continuing past this page, you agree to the{" "}
-            <a href={`${SITE}/en/legal/terms-of-use`} target="_blank" rel="noreferrer">
+            <a href="#" onClick={noop}>
               Terms of Use
             </a>{" "}
             and understand that information will be used as described in our{" "}
-            <a href={`${SITE}/en/legal/privacy-policy`} target="_blank" rel="noreferrer">
+            <a href="#" onClick={noop}>
               Privacy Policy
             </a>
             .
@@ -129,7 +127,7 @@ export default function Login() {
 
       <footer className="okta-footer">
         <span>Powered by Okta</span>
-        <a href={`${SITE}/en/legal/privacy-policy`} target="_blank" rel="noreferrer">
+        <a href="#" onClick={noop}>
           Privacy Policy
         </a>
       </footer>

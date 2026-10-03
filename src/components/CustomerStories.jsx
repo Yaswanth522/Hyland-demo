@@ -1,5 +1,6 @@
 import { stories } from "../data/home";
 import "./CustomerStories.css";
+import { noop } from "../utils/placeholder";
 
 function Arrow() {
   return (
@@ -20,7 +21,7 @@ export default function CustomerStories() {
           <div className="story-feature__body">
             <h3>{featured.name}</h3>
             <p>{featured.text}</p>
-            <a className="btn btn--outline" href={featured.href}>
+            <a className="btn btn--outline" href="#" onClick={noop}>
               Read the case study <Arrow />
             </a>
           </div>
@@ -29,7 +30,7 @@ export default function CustomerStories() {
           {rest.map((s) => (
             <article key={s.name} className="story-card">
               <h3>{s.name}</h3>
-              <a className="text-link" href={s.href}>
+              <a className="text-link" href="#" onClick={noop}>
                 Read the case study <Arrow />
               </a>
             </article>
